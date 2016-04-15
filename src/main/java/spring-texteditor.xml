@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="textEditor" class="com.naren.dto.TextEditor">
+		<!-- DI via cons -->
+		<constructor-arg type="java.lang.String" value="Narender Singh Tanwar"></constructor-arg>
+		<constructor-arg type="int" value="27"></constructor-arg>
+		<constructor-arg ref="spellCheckObj"></constructor-arg>
+		<!-- <property name="spellCheckObj"> <ref bean="spellCheckObj"/> </property> -->
+		<!--inner bean -->
+		<!-- <property name="spellCheckObj"> <bean id="spellCheckObj" class="com.naren.dto.SpellChecker"> 
+			</bean> </property> -->
+		<!-- <property name="spellCheckObj" ref="spellCheckObj"></property> -->
+	</bean>
+	<bean id="spellCheckObj" class="com.naren.dto.SpellChecker"
+		p:language="Language ERROR" p:grammer="Gramatical ERROR" />
+</beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="helloWorld" class="com.naren.dto.HelloWorld"
+		init-method="afterPropertiesSet" destroy-method="destroy" scope="singleton" p:message1="Hello Narender" p:message2="Message From Narender"/>
+	<bean name="POST" class="com.naren.util.BeanPostProcessorClass"></bean>
+	<bean id="helloIndia" class="com.naren.dto.HelloIndia"
+		parent="helloWorld" init-method="afterPropertiesSet" destroy-method="destroy" scope="singleton">
+		<property name="message1" value="Hello India!" />
+		<property name="message3" value="Namaste India!" />
+	</bean>
+</beans>
+
